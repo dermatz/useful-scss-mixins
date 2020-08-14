@@ -1,14 +1,12 @@
 // Options
-$debug: true;
-$debug_background: frue;
-$debug_outline: true;
-
-// Color-Set
-$debug_background_color: deepskyblue;
-$debug_outline-color: deeppink;
+$debug: true; // Enable or disable debug-mode global
 
 // Mixin
-@mixin dev() {
+@mixin $debug_color(debug_background: false, debug_outline: false) {
+    
+    $debug_background_color: deepskyblue;
+    $debug_outline-color: deeppink;
+    
     @if $debug and $debug_background and $debug_outline {
         background-color: $debug_background_color;
         outline: 1px solid $debug_outline-color;
@@ -22,5 +20,5 @@ $debug_outline-color: deeppink;
 }
 
 * {
-    @include dev; // apply dev debugging
+    @include $debug_color(true, true); // apply dev debugging
 }
