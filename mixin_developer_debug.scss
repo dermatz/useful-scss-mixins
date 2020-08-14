@@ -1,0 +1,26 @@
+// Options
+$debug: true;
+$debug_background: frue;
+$debug_outline: true;
+
+// Color-Set
+$debug_background_color: deepskyblue;
+$debug_outline-color: deeppink;
+
+// Mixin
+@mixin dev() {
+    @if $debug and $debug_background and $debug_outline {
+        background-color: $debug_background_color;
+        outline: 1px solid $debug_outline-color;
+    }
+    @if $debug and $debug_background {
+        background-color: $debug_background_color;
+    }
+    @if $debug and $debug_outline {
+        outline: 1px solid $debug_outline-color;
+    }
+}
+
+* {
+    @include dev; // apply dev debugging
+}
